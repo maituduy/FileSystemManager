@@ -60,7 +60,8 @@ namespace fsmanager {
         ofs.write(static_cast<const char *>(buf), buflen);
         ofs.close();
         return true;
-      }
+      } else
+          std::cout << "Cannot create file\n";
       return false;
     }
 

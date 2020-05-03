@@ -41,21 +41,17 @@ namespace fsmanager {
 
     class FileWriter {
     public:
-        FileWriter(const std::vector<file>& files, const std::vector<std::string>& folders);
+        FileWriter(std::vector<file>  files, std::vector<std::string>  folders);
 
         bool write_on_multi_threads();
-
-        void _write_one(const file& f, const std::string& folder, int file_index);
-
-        void _write_many(const file &f, const std::vector<std::string>& folders, int file_index);
-
 
     private:
         std::vector<file> files;
         std::vector<std::string> folders;
 
-        std::vector<AtomicCounter*> count;
-        AtomicCounter* count_file;
+        bool _write_one(const file& f, const std::string& folder);
+
+        bool _write_many(const file &f);
 
     };
 }

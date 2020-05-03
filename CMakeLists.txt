@@ -3,7 +3,9 @@ project(FileSystem)
 
 set(CMAKE_CXX_STANDARD 11)
 
-file(GLOB SOURCES "*.cpp")
+include_directories(include)
+
+file(GLOB SOURCES "src/TestFilesystemManager.cpp" "src/ManagerFileSystem/*.cpp")
 
 find_package (Threads)
 
